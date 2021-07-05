@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Morse-Code Translator</title>
+
+</head>
+
+<body>
+    <main>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary hello">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">MorseCode</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{url_for('home')}}">Home </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{{url_for('encryption')}}">Encryption</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{{url_for('decryption')}}">Decryption</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="container display-4">
+            Welcome to Online MorseCode Tool
+        </div>
+        <div class=" container text-center">
+            <button class="btn"><a href="{{url_for('encryption')}}">Encrypt Your Text</a></button>
+            <button class="btn"><a href="{{url_for('decryption')}}">Decrypt Your  Text</a></button>
+        </div>
+        <div class="container about-morse-code">
+            <h4>What is Morse Code</h4>
+            <p>Morse is a type of communication method in which letters, alphabets, punctuation marks, and numerical are arranged in dots, dashes, and spaces. In this particular method, the text is transmitted in the form of electric pulses, Analogous mechanical
+                and visual signals like series of lights in the way experts can understand it without the help of the external device. The morse system is well- defined, spontaneous, and ready-to-use method used to have effective communication in the
+                earlier period. There are three types of morse systems like American morse, continental morse, and international morse. All the systems are quite similar to each other but the international morse system is easier and precise comparatively.
+                Initially, the morse code system was popular with amateur radio operators but it is no longer being used in any sector. Now, even it is not necessary to adopt this code system if you are seeking a career as a US pilot or air traffic controller.
+            </p>
+            <h4>Morse Code History</h4>
+            <p>The first morse code system was invented by an American inventor Samuel F.B. Morse in 1830. He introduced this system when he was working with an electrical telegraphy system used for sending pulses of electric current. “What God hath wrought.”
+                was the first message transmitted in 1844 and in the same year Samuel Morse also patented this invention. During the initial days, this code was used to transmit only numbers, and the receivers used to refer dictionaries to translate numbers
+                into words. The original version of the morse code was further developed by one of the assistants of Samuel morse and an American scientist named Alfred Lewis Vali. After some period of the invention of the morse code system, it was observed
+                that the set of code is not sufficient for transmitting text in any other language except English due to being lacked in code for letters with dielectric marks. In 1951, the morse code system was structured by the conference of European
+                nations to define cod for letters with diacritic marks. This newly developed system is also known as Continental Morse Code. The international morse code was developed by Friedrich Clement Gerke in 1848. It was used for electronic telegraphy
+                in Germany. In 1865, this re-developed morse code system was regularised at the International Telegraphy Congress in Paris and further developed the standard by International Telecommunication Union. The morse code day is observed on 27
+                April every year.
+            </p>
+            <h4>How does Morse Code work?</h4>
+            <p>Generally, Morse code uses a structured combination of dots and dashes to define different letters. American morse code uses the different patterns of dots and spaces for the representation of some of the letters while the international morse
+                system uses such a combination to represent all the letters. Apart from this, the major difference between the international and American systems is the length of the dashes used in the text. In American morse code uses dashes of varying
+                lengths and in the case of the international morse code, these dashes are of fixed length. For example, the commonly used word "SOS" is transmitted with the help of three dots and their dashes. The dots are used to mention the letter "S"
+                and dashes are used to denote the letter "O"
+            </p>
+            <h4>Morse Code Alphabet and numbers </h4>
+            <p>
+                The morse code alphabets is a simple set where each letter and number is structured with unique code combining dots and dashes. It consists of 26 English letters from A to Z, none English letters, Arabic numerical, and also a set of prosigns. In this
+                particular system, there is no difference between upper case and lower case letters is observed. The sentences formed by morse alphabets are unreliable and do not consist of any logical order. One has to figure out the frequency of the
+                various letters used in a sentence to understand which letter is most used and which is least. In the case of morse code transmission, dot duration worked as the unit of the time measurement. Every dot or dash used in character is distinguished
+                by three dots which denotes space and words are separated by seven dots to denote space.
+
+            </p>
+            <div class="container table-responsive p-5 m-4 shadow">
+                <h4>Morse-Code Alphabets and Numbers</h4>
+                <table class="table table-hover table-bordered border-primary">
+                    <thead>
+                        <tr>
+                            <th scope="col">Letter/Number</th>
+                            <th scope="col">Code</th>
+                            <th scope="col">Letter</th>
+                            <th scope="col">Code</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>A,a</th>
+                            <td>.-</td>
+                            <th>B,b</th>
+                            <td>-...</td>
+                        </tr>
+                        <tr>
+                            <th>C,c</th>
+                            <td>-.-.</td>
+                            <th>D,d</th>
+                            <td>-...</td>
+                        </tr>
+                        <tr>
+                            <th>E,e</th>
+                            <td>.</td>
+                            <th>F,f</th>
+                            <td>..-.</td>
+                        </tr>
+                        <tr>
+                            <th>G,g</th>
+                            <td>--.</td>
+                            <th>H,h</th>
+                            <td>....</td>
+                        </tr>
+                        <tr>
+                            <th>I,i</th>
+                            <td>..</td>
+                            <th>J,j</th>
+                            <td>.---</td>
+                        </tr>
+                        <tr>
+                            <th>K,k</th>
+                            <td>-.-</td>
+                            <th>L,l</th>
+                            <td>.-..</td>
+                        </tr>
+                        <tr>
+                            <th>M,m</th>
+                            <td>--</td>
+                            <th>N,n</th>
+                            <td>-.</td>
+                        </tr>
+                        <tr>
+                            <th>O,o</th>
+                            <td>---</td>
+                            <th>P,p</th>
+                            <td>.--.</td>
+                        </tr>
+                        <tr>
+                            <th>Q,q</th>
+                            <td>--.-</td>
+                            <th>R,r</th>
+                            <td>.-.</td>
+                        </tr>
+                        <tr>
+                            <th>S,s</th>
+                            <td>...</td>
+                            <th>T,t</th>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th>U,u</th>
+                            <td>..-</td>
+                            <th>V,v</th>
+                            <td>...-</td>
+                        </tr>
+                        <tr>
+                            <th>W,w</th>
+                            <td>.---</td>
+                            <th>X,x</th>
+                            <td>-..-</td>
+                        </tr>
+                        <tr>
+                            <th>Y,y</th>
+                            <td>-.--</td>
+                            <th>Z,z</th>
+                            <td>--..</td>
+                        </tr>
+                        <tr>
+                            <th>0</th>
+                            <td>-----</td>
+                            <th>1</th>
+                            <td>.----</td>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td>..---</td>
+                            <th>3</th>
+                            <td>...--</td>
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <td>....-</td>
+                            <th>5</th>
+                            <td>.....</td>
+                        </tr>
+                        <tr>
+                            <th>6</th>
+                            <td>-....</td>
+                            <th>7</th>
+                            <td>--....</td>
+                        </tr>
+                        <tr>
+                            <th>8</th>
+                            <td>---..</td>
+                            <th>9</th>
+                            <td>----.</td>
+                        </tr>
+                        <tr>
+                            <th>,</th>
+                            <td>--..--</td>
+                            <th>.</th>
+                            <td>.-.-.-</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+
+
+            <button class="btn"><a href="{{url_for('moreabout')}}">More About Morce Code</a></button>
+            <footer class="text-center">
+                <div class="container-footer">
+                    <ul class="socials">
+                        <li>
+                            <a href="{{url_for( 'facebook')}} "> <i class="fab fa-facebook" style="font-size: 2rem;"></i></a>
+                        </li>
+                        <li>
+                            <a href="{{url_for( 'twitter')}} "> <i class="fab fa-twitter" style="font-size: 2rem;"></i></a>
+                        </li>
+                        <li>
+                            <a href="{{url_for( 'youtube')}} "> <i class="fab fa-youtube" style="font-size: 2rem;"></i></a>
+                        </li>
+                        <li>
+                            <a href="{{url_for( 'instagram')}} "> <i class="fab fa-instagram" style="font-size: 2rem;"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <p>copyright &copy;2021 MorseCode..</p>
+            </footer>
+
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js " integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4 " crossorigin="anonymous "></script>
+    </main>
+</body>
+
+</html>

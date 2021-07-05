@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <title>Morse-Code-Translator</title>
+</head>
+
+<body>
+    <main>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">MorseCode</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{url_for('home')}}">Home </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{{url_for('encryption')}}">Encryoption</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{url_for('decryption')}}">Decryption</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <h2 class="display-4 text-center">Decrypt Your Text</h2>
+        <h4 class="text-center">Morse Code to Text</h4>
+        <div class="container">
+            <form action="/decryption/" method="POST">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class=" mb-3 form-group">
+                            <label><strong>Morse Code</strong></label>
+                            <textarea type="text" class="form-control" name="input-morse-code"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class=" mb-3 form-group">
+                            <label><strong>Text for-:{{input}} </strong></label>
+                            <textarea class="form-control" id="textId">
+                                {{ xyz }}
+                        </textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" name="button" value="decode" class="btn btn-primary mb-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Convert Text to Morse Code and Download audio file ">decrypt</button>
+                    <button type="submit" name="button" value="sound" class="btn btn-primary mb-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Convert Text to Morse Code and Download audio file ">Play Audio</button>
+                    <button type="submit" name="button" value="downloadsound" class="btn btn-primary mb-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Convert Text to Morse Code and Download audio file ">Download</button>
+
+                </div>
+            </form>
+            <div class="text-center mb-2">
+                <button id="copyBtn" class="btn btn-primary mb-2 " data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to Clip Board">Copy</button>
+            </div>
+        </div>
+        <div class="container table-responsive p-5 m-4 shadow">
+            <table class="table table-hover table-bordered border-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">Letter/Number</th>
+                        <th scope="col">Code</th>
+                        <th scope="col">Letter</th>
+                        <th scope="col">Code</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>A,a</th>
+                        <td>.-</td>
+                        <th>B,b</th>
+                        <td>-...</td>
+                    </tr>
+                    <tr>
+                        <th>C,c</th>
+                        <td>-.-.</td>
+                        <th>D,d</th>
+                        <td>-...</td>
+                    </tr>
+                    <tr>
+                        <th>E,e</th>
+                        <td>.</td>
+                        <th>F,f</th>
+                        <td>..-.</td>
+                    </tr>
+                    <tr>
+                        <th>G,g</th>
+                        <td>--.</td>
+                        <th>H,h</th>
+                        <td>....</td>
+                    </tr>
+                    <tr>
+                        <th>I,i</th>
+                        <td>..</td>
+                        <th>J,j</th>
+                        <td>.---</td>
+                    </tr>
+                    <tr>
+                        <th>K,k</th>
+                        <td>-.-</td>
+                        <th>L,l</th>
+                        <td>.-..</td>
+                    </tr>
+                    <tr>
+                        <th>M,m</th>
+                        <td>--</td>
+                        <th>N,n</th>
+                        <td>-.</td>
+                    </tr>
+                    <tr>
+                        <th>O,o</th>
+                        <td>---</td>
+                        <th>P,p</th>
+                        <td>.--.</td>
+                    </tr>
+                    <tr>
+                        <th>Q,q</th>
+                        <td>--.-</td>
+                        <th>R,r</th>
+                        <td>.-.</td>
+                    </tr>
+                    <tr>
+                        <th>S,s</th>
+                        <td>...</td>
+                        <th>T,t</th>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <th>U,u</th>
+                        <td>..-</td>
+                        <th>V,v</th>
+                        <td>...-</td>
+                    </tr>
+                    <tr>
+                        <th>W,w</th>
+                        <td>.---</td>
+                        <th>X,x</th>
+                        <td>-..-</td>
+                    </tr>
+                    <tr>
+                        <th>Y,y</th>
+                        <td>-.--</td>
+                        <th>Z,z</th>
+                        <td>--..</td>
+                    </tr>
+                    <tr>
+                        <th>0</th>
+                        <td>-----</td>
+                        <th>1</th>
+                        <td>.----</td>
+                    </tr>
+                    <tr>
+                        <th>2</th>
+                        <td>..---</td>
+                        <th>3</th>
+                        <td>...--</td>
+                    </tr>
+                    <tr>
+                        <th>4</th>
+                        <td>....-</td>
+                        <th>5</th>
+                        <td>.....</td>
+                    </tr>
+                    <tr>
+                        <th>6</th>
+                        <td>-....</td>
+                        <th>7</th>
+                        <td>--....</td>
+                    </tr>
+                    <tr>
+                        <th>8</th>
+                        <td>---..</td>
+                        <th>9</th>
+                        <td>----.</td>
+                    </tr>
+                    <tr>
+                        <th>,</th>
+                        <td>--..--</td>
+                        <th>.</th>
+                        <td>.-.-.-</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+
+        <footer class="text-center">
+            <div class="container-footer">
+                <ul class="socials">
+                    <li>
+                        <a href="{{url_for( 'facebook')}} "> <i class="fab fa-facebook" style="font-size: 2rem;"></i></a>
+                    </li>
+                    <li>
+                        <a href="{{url_for( 'twitter')}} "> <i class="fab fa-twitter" style="font-size: 2rem;"></i></a>
+                    </li>
+                    <li>
+                        <a href="{{url_for( 'youtube')}} "> <i class="fab fa-youtube" style="font-size: 2rem;"></i></a>
+                    </li>
+                    <li>
+                        <a href="{{url_for( 'instagram')}} "> <i class="fab fa-instagram" style="font-size: 2rem;"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <p>copyright &copy;2021 MorseCode..</p>
+        </footer>
+
+
+
+
+
+
+        <!-- Script to add Copy Functionality -->
+
+        <script>
+            document.getElementById("copyBtn")
+                .onclick = function() {
+                    let text = document.getElementById("textId").value.trim();
+                    navigator.clipboard.writeText(text)
+                        .then(() => {
+                            console.log('Text copied to clipboard');
+                        })
+                        .catch(err => {
+                            console.log('Error in copying text: ', err);
+                        });
+                }
+        </script>
+
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+        <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js " integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4 " crossorigin="anonymous "></script>
+
+
+    </main>
+</body>
+
+</html>
