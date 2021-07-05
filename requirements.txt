@@ -1,0 +1,8 @@
+playsound==1.2.2
+Flask==1.1.2
+pyttsx3==2.90
+funny_morse==0.0.1
+
+
+
+and dah.wav and dit.wav files for making morse sound
