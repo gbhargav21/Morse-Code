@@ -2,4 +2,4 @@ playsound==1.2.2
 Flask==1.1.2
 pyttsx3==2.90
 funny_morse==0.0.1
-gunicorn
+gunicorn==20.1.0
